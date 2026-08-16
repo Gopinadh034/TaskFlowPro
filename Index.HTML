@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow Pro - Smart Task Manager</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Animated Background Blobs -->
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <h1>
+                <i class="fa-solid fa-layer-group"></i>
+                TaskFlow Pro
+            </h1>
+
+            <p class="subtitle">
+                Organize your work, study and personal goals efficiently.
+            </p>
+        </header>
+
+        <!-- Dashboard -->
+        <section class="dashboard">
+
+            <div class="card">
+                <h3>Total Tasks</h3>
+                <p id="totalTasks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Pending</h3>
+                <p id="pendingTasks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Completed</h3>
+                <p id="completedTasks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Trash</h3>
+                <p id="trashTasks">0</p>
+            </div>
+
+        </section>
+
+        <!-- Add Task Form -->
+        <section class="task-form glass">
+
+            <!-- Row 1 -->
+            <div class="form-row">
+
+                <input
+                    type="text"
+                    id="taskTitle"
+                    placeholder="Enter Task Title"
+                >
+
+                <select id="taskPriority">
+
+                    <option value="High">
+                        🔴 High Priority
+                    </option>
+
+                    <option value="Medium">
+                        🟡 Medium Priority
+                    </option>
+
+                    <option value="Low">
+                        🟢 Low Priority
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- Row 2 -->
+            <div class="form-row">
+
+                <select id="taskCategory">
+
+                    <option value="Work">
+                        💼 Work
+                    </option>
+
+                    <option value="Study">
+                        📚 Study
+                    </option>
+
+                    <option value="Personal">
+                        🏠 Personal
+                    </option>
+
+                    <option value="Health">
+                        🏃 Health
+                    </option>
+
+                </select>
+
+                <input
+                    type="date"
+                    id="taskDueDate"
+                >
+
+            </div>
+
+            <!-- Row 3 -->
+            <div class="form-row">
+
+                <input
+                    type="time"
+                    id="taskReminder"
+                >
+
+            </div>
+
+            <button id="addTaskBtn">
+                <i class="fa-solid fa-plus"></i>
+                Add Task
+            </button>
+
+        </section>
+
+        <!-- Search -->
+        <section class="search-box glass">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Tasks..."
+            >
+
+        </section>
+
+        <!-- Tabs -->
+        <section class="tabs">
+
+            <button
+                class="tab-btn active"
+                data-tab="all"
+            >
+                All Tasks
+            </button>
+
+            <button
+                class="tab-btn"
+                data-tab="pending"
+            >
+                Pending
+            </button>
+
+            <button
+                class="tab-btn"
+                data-tab="completed"
+            >
+                Completed
+            </button>
+
+            <button
+                class="tab-btn"
+                data-tab="trash"
+            >
+                Trash
+            </button>
+
+        </section>
+
+        <!-- Tasks -->
+        <section
+            id="taskContainer"
+            class="task-container"
+        >
+            <!-- Dynamic Tasks -->
+        </section>
+
+    </div>
+
+    <!-- Edit Task Modal -->
+    <div
+        class="modal"
+        id="editModal"
+    >
+
+        <div class="modal-content">
+
+            <h2>
+                <i class="fa-solid fa-pen"></i>
+                Edit Task
+            </h2>
+
+            <input
+                type="text"
+                id="editTitle"
+                placeholder="Task Title"
+            >
+
+            <select id="editPriority">
+
+                <option value="High">
+                    🔴 High Priority
+                </option>
+
+                <option value="Medium">
+                    🟡 Medium Priority
+                </option>
+
+                <option value="Low">
+                    🟢 Low Priority
+                </option>
+
+            </select>
+
+            <select id="editCategory">
+
+                <option value="Work">
+                    💼 Work
+                </option>
+
+                <option value="Study">
+                    📚 Study
+                </option>
+
+                <option value="Personal">
+                    🏠 Personal
+                </option>
+
+                <option value="Health">
+                    🏃 Health
+                </option>
+
+            </select>
+
+            <input
+                type="date"
+                id="editDueDate"
+            >
+
+            <!-- NEW REMINDER FIELD -->
+            <input
+                type="time"
+                id="editReminder"
+            >
+
+            <div class="modal-buttons">
+
+                <button
+                    id="saveEditBtn"
+                    class="save-btn"
+                >
+                    Save Changes
+                </button>
+
+                <button
+                    id="cancelEditBtn"
+                    class="cancel-btn"
+                >
+                    Cancel
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
